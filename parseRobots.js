@@ -1,15 +1,14 @@
 const fs = require('fs');
 const geoip = require('geoip-lite');
 
+var USE_IP2 = false;
 
 if (fs.existsSync("./IP2LOCATION-LITE-DB1.BIN")) {
-	const USE_IP2 = true;
+	USE_IP2 = true;
 	const {IP2Location} = require("ip2location-nodejs");
 	const ip2location = new IP2Location();
 	
 	ip2location.open("./IP2LOCATION-LITE-DB1.BIN");
-} else {
-	const USE_IP2 = false;
 }
 
 var inputFile = process.argv[2];
