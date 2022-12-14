@@ -1,0 +1,19 @@
+{
+  "name": "domaincrawler",
+  "version": "1.1.2",
+  "description": "crawler to get list of active domains based on commoncrawl",
+  "main": "parseRobots.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/b3bb0/domainCrawler.git"
+  },
+  "author": "Alberto bebbo Capponi",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/b3bb0/domainCrawler/issues"
+  },
+  "homepage": "https://github.com/b3bb0/domainCrawler#readme"
+}
