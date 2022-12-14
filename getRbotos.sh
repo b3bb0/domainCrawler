@@ -56,6 +56,13 @@ cat data/.merged | sort | uniq > data/robots-XX.merged
 if [ -f ./data/.country ]; then
 	COUNTRY=$(cat ./data/.country)
 	grep -i "$COUNTRY" data/robots$ROBONUM.country |cut -d ' ' -f 2|sort |uniq > data/robots$ROBONUM.country.$COUNTRY
+	DOMAIN=$(cat ./data/.domain)
+	if [ "$COUNTRY" != "$DOMAIN" ]; then
+		grep -i "$DOMAIN " data/robots$ROBONUM.country |cut -d ' ' -f 2|sort |uniq >> data/robots$ROBONUM.country.$COUNTRY
+		mv data/robots$ROBONUM.country.$COUNTRY data/robots$ROBONUM.country.$COUNTRY.tmp
+		cat data/robots$ROBONUM.country.$COUNTRY.tmp |sort | uniq > data/robots$ROBONUM.country.$COUNTRY
+		rm -f data/robots$ROBONUM.country.$COUNTRY.tmp
+	fi
 	comm -23 data/robots$ROBONUM.country.$COUNTRY data/robots-XX.merged.$COUNTRY > data/.merged.$COUNTRY.tmp
 	REALADD=$(wc -l data/.merged.$COUNTRY.tmp)
 	cat data/.merged.$COUNTRY | sort | uniq > data/robots-XX.merged.$COUNTRY

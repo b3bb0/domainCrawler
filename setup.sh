@@ -22,7 +22,7 @@ read -p "Which country are you looking for? [2 character code] " country
 echo -n $country | tr '[:upper:]' '[:lower:]' > ./data/.country
 
 read -p "   what's the country domain? (eg: .uk) " domain
-echo -r $domain | tr '[:upper:]' '[:lower:]' > ./data/.domain
+echo -n $domain | tr '[:upper:]' '[:lower:]' > ./data/.domain
 
 COUNTRY=$(cat ./data/.country)
 
