@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/b3bb0/domainCrawler/issues"
   },
-  "homepage": "https://github.com/b3bb0/domainCrawler#readme"
+  "homepage": "https://github.com/b3bb0/domainCrawler#readme",
+  "dependencies": {
+    "geoip-lite": "^1.4.6",
+    "ip2location-nodejs": "^9.4.2"
+  }
 }
