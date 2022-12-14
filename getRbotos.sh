@@ -25,14 +25,12 @@ echo "1) Synching $BIT from bucket"
 
 cd robots
 aws s3 sync s3://commoncrawl/$BIT . --quiet
+if [ "$?" != "0" ]; then
+	echo "some files are missing, retry in few minutes"
+	exit 0;
+fi
 gunzip *
 cd ..
-
-CHECKNUM=$(find robots/ -type f | wc -l)
-if [ "$CHECKNUM" != "800" ]; then
-	echo "some files are missing, retry in few minutes"
-	exit 1;
-fi
 
 echo $BIT >>  ./data/.robots.paths.done
 ROBONUM="-"$(wc -l ./data/.robots.paths.done|cut -d ' ' -f 1)
