@@ -38,4 +38,4 @@ if [ ! -f ./data/robots-XX.merged.$COUNTRY ]; then
 	touch ./data/robots-XX.merged.$COUNTRY
 fi
 
-
+mv setup.sh tools/
