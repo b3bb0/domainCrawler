@@ -49,7 +49,7 @@ fi
 node parseRobots.js data/robots$ROBONUM.join | sort | uniq > data/robots$ROBONUM.country
 comm -23 data/robots$ROBONUM.country data/robots-XX.merged > data/.merged.tmp
 REALADD=$(wc -l data/.merged.tmp)
-cat data/.merged | sort | uniq > data/robots-XX.merged
+cat data/.merged.tmp | sort | uniq > data/robots-XX.merged
 
 if [ -f ./data/.country ]; then
 	COUNTRY=$(cat ./data/.country)
@@ -63,12 +63,12 @@ if [ -f ./data/.country ]; then
 	fi
 	comm -23 data/robots$ROBONUM.country.$COUNTRY data/robots-XX.merged.$COUNTRY > data/.merged.$COUNTRY.tmp
 	REALADD=$(wc -l data/.merged.$COUNTRY.tmp)
-	cat data/.merged.$COUNTRY | sort | uniq > data/robots-XX.merged.$COUNTRY
+	cat data/.merged.$COUNTRY.tmp | sort | uniq > data/robots-XX.merged.$COUNTRY
 	rm -f data/.merged.$COUNTRY.tmp
 	echo "4) Added $REALADD new $COUNTRY domains to: data/robots-XX.merged.$COUNTRY "
+else
+	echo "4) Added $REALADD new domains to: data/robots-XX.merged "
 fi
-
-echo "4) Added $REALADD new domains to: data/robots-XX.merged "
 
 rm -fR robots/*
 
