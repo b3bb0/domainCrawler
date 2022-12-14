@@ -38,4 +38,6 @@ if [ ! -f ./data/robots-XX.merged.$COUNTRY ]; then
 	touch ./data/robots-XX.merged.$COUNTRY
 fi
 
+npm install
+
 mv setup.sh tools/
